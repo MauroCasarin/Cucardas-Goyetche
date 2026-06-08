@@ -10,6 +10,35 @@ import { motion, AnimatePresence } from 'motion/react';
 // Images uploaded to public/
 const galleryImages = Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`);
 
+const RibbonDivider = () => (
+  <div className="w-full flex-col flex relative z-20 shadow-lg">
+    <div className="w-full h-1 bg-gradient-to-r from-gold-light via-gold to-gold-light opacity-90 shadow-sm relative z-10"></div>
+    <div className="w-full h-8 sm:h-10 overflow-hidden relative border-y border-gold/30" style={{ background: 'linear-gradient(90deg, #1E293B, #0F172A)' }}>
+      {/* Cintas moviéndose de izquierda a derecha simulando pliegues de cucarda */}
+      <motion.div
+        animate={{ x: [-40, 0] }}
+        transition={{ repeat: Infinity, ease: "linear", duration: 1.5 }}
+        className="absolute inset-0 w-[calc(100%+80px)] flex"
+        style={{
+          backgroundImage: `
+            linear-gradient(90deg, 
+              rgba(255,255,255,0) 0px, 
+              rgba(255,255,255,0.08) 10px, 
+              rgba(0,0,0,0.15) 20px, 
+              rgba(255,255,255,0) 40px
+            ),
+            url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L20 0 L40 20 L20 40 Z' fill='none' stroke='%23D4AF37' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E")
+          `,
+          backgroundSize: '40px 100%, 40px 40px',
+        }}
+      />
+      {/* Línea dorada central horizontal */}
+      <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent -translate-y-1/2 opacity-70"></div>
+    </div>
+    <div className="w-full h-1 bg-gradient-to-r from-gold-light via-gold to-gold-light opacity-90 shadow-sm relative z-10"></div>
+  </div>
+);
+
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
@@ -109,7 +138,7 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full bg-gradient-to-br from-primary to-primary-dark text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center">
+        <section id="inicio" className="w-full bg-gradient-to-br from-blue-900 via-[#1E293B] to-[#0F172A] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center">
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
@@ -125,21 +154,19 @@ export default function App() {
               <p className="text-sm sm:text-base lg:text-lg text-gray-200 mb-6 max-w-xl mx-auto md:mx-0">
                 Fabricantes de cucardas, rosetas y galardones desde 1965. Premiando los mejores momentos.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                <a href="#galeria" className="bg-gold hover:bg-gold-light text-primary-dark font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 inline-flex items-center justify-center">
-                  Ver Trabajos
-                </a>
-              </div>
             </motion.div>
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:w-1/2 flex justify-center"
+              className="md:w-1/2 flex flex-col items-center justify-center p-4"
             >
+               <a href="#galeria" className="text-gold hover:text-gold-light text-base sm:text-lg font-bold uppercase tracking-widest mb-6 lg:mb-8 inline-flex items-center transition-colors drop-shadow-md pb-1 border-b-2 border-gold/50 hover:border-gold">
+                  Ver Trabajos <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
+               </a>
                <div 
-                 className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full p-2 flex items-center justify-center drop-shadow-2xl"
+                 className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full p-2 flex items-center justify-center drop-shadow-2xl"
                >
                   <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain drop-shadow-lg" />
                </div>
@@ -148,11 +175,11 @@ export default function App() {
         </section>
 
         {/* Divider */}
-        <div className="w-full h-8 sm:h-12 bg-repeat-x opacity-20" style={{ backgroundImage: "url('Fondo.jpg')", backgroundSize: "auto 100%" }}></div>
+        <RibbonDivider />
 
         {/* About Us Section */}
-        <section id="nosotros" className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 flex justify-center">
-          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="nosotros" className="w-full py-16 sm:py-20 lg:py-24 relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
               
               <motion.div 
@@ -217,11 +244,22 @@ export default function App() {
         </section>
 
         {/* Divider */}
-        <div className="w-full h-8 sm:h-12 bg-repeat-x opacity-20" style={{ backgroundImage: "url('Fondo.jpg')", backgroundSize: "auto 100%" }}></div>
+        <RibbonDivider />
 
         {/* Gallery Section replacing Catalog */}
-        <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-softgray to-gray-200 flex justify-center border-t border-gray-200/50">
-          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 relative flex justify-center overflow-hidden bg-softgray">
+          {/* Background image in Gallery */}
+          <div 
+            className="absolute inset-0 opacity-20 sm:opacity-[0.25] mix-blend-multiply bg-fixed"
+            style={{ 
+              backgroundImage: "url('Fondo.jpg')", 
+              backgroundSize: "cover",
+              backgroundPosition: "center"
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-softgray/95 via-gray-100/70 to-gray-200/90 pointer-events-none"></div>
+          
+          <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-10 sm:mb-14 flex flex-col items-center">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">Trabajos</h2>
               <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">Una muestra de nuestra dedicación.</p>
@@ -322,8 +360,8 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contacto" className="w-full bg-[#1a1a1a] text-white pt-16 sm:pt-20 pb-8 border-t-4 border-gold">
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <footer id="contacto" className="w-full bg-gradient-to-b from-gray-900 via-[#1a1a1a] to-black text-white pt-16 sm:pt-20 pb-8 border-t-4 border-gold relative overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-12 lg:mb-16">
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
