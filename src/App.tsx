@@ -206,9 +206,6 @@ export default function App() {
               
               {/* Social Icons Desktop */}
               <div className="flex space-x-4 pl-4 border-l border-gray-200">
-                <a href="tel:01148545856" className="text-gray-400 hover:text-primary transition-colors">
-                  <Phone className="w-5 h-5 lg:w-6 lg:h-6" />
-                </a>
                 <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-green-600 transition-colors">
                   <MessageCircle className="w-5 h-5 lg:w-6 lg:h-6" />
                 </a>
@@ -243,9 +240,6 @@ export default function App() {
                 <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">CONTACTO</a>
                 
                 <div className="flex space-x-6 pt-4 pb-2 px-3 border-t border-gray-100 justify-center">
-                  <a href="tel:01148545856" className="text-gray-500 hover:text-primary p-2 bg-gray-50 rounded-full">
-                    <Phone className="w-6 h-6" />
-                  </a>
                   <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary p-2 bg-gray-50 rounded-full">
                     <Instagram className="w-6 h-6" />
                   </a>
@@ -264,7 +258,7 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center bg-gray-900">
+        <section id="inicio" className="w-full text-white py-8 sm:py-12 lg:py-14 relative overflow-hidden flex justify-center bg-gray-900">
           {/* Background Image & Gradient */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
@@ -278,8 +272,14 @@ export default function App() {
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
               className="md:w-1/2 text-center md:text-left mb-10 md:mb-0 pb-4 md:pb-0"
             >
-              <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-gold-light text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-6 drop-shadow-sm">
-                Desde 1965
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6">
+                <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-gold-light text-xs sm:text-sm font-bold tracking-[0.2em] uppercase drop-shadow-sm">
+                  Desde 1965
+                </div>
+                <div className="inline-flex items-center px-3 py-1 bg-white/10 backdrop-blur-sm border border-gold/40 rounded-full text-white text-xs sm:text-sm font-bold tracking-[0.1em] uppercase drop-shadow-sm">
+                  <MapPin className="w-3.5 h-3.5 text-gold mr-1.5" />
+                  Envíos a todo el país
+                </div>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-6 leading-tight text-white drop-shadow-md">
                 Tradición y Calidad en cada detalle
@@ -318,7 +318,7 @@ export default function App() {
         <RibbonDivider />
 
         {/* About Us Section */}
-        <section id="nosotros" className="w-full py-16 sm:py-20 lg:py-24 relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <section id="nosotros" className="w-full py-10 sm:py-14 lg:py-16 relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
               
@@ -390,7 +390,7 @@ export default function App() {
         <RibbonDivider />
 
         {/* Gallery Section replacing Catalog */}
-        <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 relative flex justify-center overflow-hidden bg-softgray">
+        <section id="galeria" className="w-full py-10 sm:py-14 lg:py-16 relative flex justify-center overflow-hidden bg-softgray">
           {/* Background image in Gallery */}
           <div 
             className="absolute inset-0 opacity-20 sm:opacity-[0.25] mix-blend-multiply bg-fixed"
@@ -509,7 +509,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contacto" className="w-full text-white pt-10 sm:pt-14 pb-6 border-t-4 border-gold relative overflow-hidden">
+      <footer id="contacto" className="w-full text-white pt-8 sm:pt-10 pb-6 border-t-4 border-gold relative overflow-hidden">
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[url('/fondo2.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity grayscale"></div>
@@ -533,9 +533,6 @@ export default function App() {
               </p>
               
               <div className="flex space-x-4 mt-2">
-                <a href="tel:01148545856" className="text-gray-400 hover:text-gold transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10 hidden md:block">
-                  <Phone className="w-5 h-5" />
-                </a>
                 <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -557,12 +554,6 @@ export default function App() {
             >
               <h4 className="text-sm sm:text-base font-bold text-white mb-5 sm:mb-6 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-10 after:h-0.5 after:bg-gold">Contacto</h4>
               <ul className="space-y-3 sm:space-y-4 text-gray-300 w-full flex flex-col items-center md:items-start text-xs sm:text-sm">
-                <li className="flex items-center group">
-                  <div className="bg-white/5 p-2 rounded-full mr-3 group-hover:bg-gold/20 transition-colors">
-                    <Phone className="w-4 h-4 text-gold shrink-0" />
-                  </div>
-                  <a href="tel:01148545856" className="hover:text-gold transition-colors">Tel.: (011) 4854-5856</a>
-                </li>
                 <li className="flex items-center group">
                   <div className="bg-white/5 p-2 rounded-full mr-3 group-hover:bg-gold/20 transition-colors">
                     <MessageCircle className="w-4 h-4 text-gold shrink-0" />
