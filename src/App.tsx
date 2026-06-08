@@ -273,9 +273,9 @@ export default function App() {
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
               className="md:w-1/2 text-center md:text-left mb-10 md:mb-0 pb-4 md:pb-0"
             >
               <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-gold-light text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-6 drop-shadow-sm">
@@ -301,7 +301,7 @@ export default function App() {
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
               className="md:w-1/2 flex flex-col items-center justify-center p-2 sm:p-4 perspective-1000"
             >
                <div 
@@ -323,24 +323,27 @@ export default function App() {
             <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
               
               <motion.div 
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: "easeOut" }}
                 className="w-full md:w-5/12 flex justify-center"
               >
                  <div className="aspect-square bg-softgray rounded-xl p-4 sm:p-6 flex items-center justify-center relative overflow-hidden shadow-sm border border-gray-100 max-w-48 sm:max-w-56 w-full mx-auto group">
                     <History className="w-24 h-24 text-primary opacity-5 absolute -bottom-4 -right-4 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
                     <div className="text-center relative z-10 w-full flex flex-col items-center">
-                      <p className="text-3xl sm:text-4xl font-bold text-primary mb-1 drop-shadow-sm">1965</p>
-                      <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em]">Desde</p>
+                    <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em]">Desde</p>
+                    <p className="text-3xl sm:text-4xl font-bold text-primary mb-1 drop-shadow-sm">1965</p>
+                      
                     </div>
                  </div>
               </motion.div>
               
               <motion.div 
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
                 className="w-full md:w-7/12"
               >
                 <div className="flex items-center gap-3 mb-6">
@@ -367,10 +370,10 @@ export default function App() {
                   ].map((item, idx) => (
                     <motion.li 
                       key={idx}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
+                      transition={{ duration: 0.5, delay: 0.6 + (idx * 0.15) }}
                       className="flex items-center text-gray-700 bg-gray-50 rounded-lg p-3 sm:p-4 text-sm sm:text-base"
                     >
                       <Award className="w-5 h-5 sm:w-6 sm:h-6 text-gold mr-3 sm:mr-4 shrink-0" />
@@ -400,20 +403,26 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-br from-softgray/95 via-gray-100/70 to-gray-200/90 pointer-events-none"></div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-10 sm:mb-14 flex flex-col items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-center mb-10 sm:mb-14 flex flex-col items-center"
+            >
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">Trabajos</h2>
               <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">Una muestra de nuestra dedicación.</p>
-            </div>
+            </motion.div>
             
             {/* Masonry / Grid Gallery */}
             <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4 md:gap-6 w-full">
               {galleryImages.map((src, index) => (
                 <motion.div 
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true, margin: "50px" }}
-                  transition={{ duration: 0.4, delay: (index % 4) * 0.1 }}
+                  transition={{ duration: 0.6, delay: (index % 5) * 0.15 + 0.2, ease: "easeOut" }}
                   className="aspect-square relative overflow-hidden rounded-xl bg-gray-200 cursor-pointer shadow-sm hover:shadow-md group"
                   onClick={() => setSelectedImageIndex(index)}
                 >
@@ -510,7 +519,13 @@ export default function App() {
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-10">
             
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+              className="flex flex-col items-center md:items-start text-center md:text-left"
+            >
               <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-12 mb-4 brightness-0 invert opacity-90" />
               <p className="text-gray-400 mb-4 text-xs sm:text-sm max-w-sm leading-relaxed">
                 Fabricando premios y reconocimientos de excelencia desde 1965. 
@@ -531,9 +546,15 @@ export default function App() {
                   <MessageCircle className="w-5 h-5" />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="flex flex-col items-center md:items-start text-center md:text-left"
+            >
               <h4 className="text-sm sm:text-base font-bold text-white mb-5 sm:mb-6 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-10 after:h-0.5 after:bg-gold">Contacto</h4>
               <ul className="space-y-3 sm:space-y-4 text-gray-300 w-full flex flex-col items-center md:items-start text-xs sm:text-sm">
                 <li className="flex items-center group">
@@ -561,9 +582,15 @@ export default function App() {
                   <span>Buenos Aires, Argentina<br/><span className="text-[10px] sm:text-xs text-gold/70 mt-1 block font-medium">Hacemos envíos a todo el país</span></span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col items-center md:items-start text-center md:text-left lg:border-l lg:border-white/10 lg:pl-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              className="flex flex-col items-center md:items-start text-center md:text-left lg:border-l lg:border-white/10 lg:pl-10"
+            >
               <h4 className="text-sm sm:text-base font-bold text-white mb-5 sm:mb-6 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-10 after:h-0.5 after:bg-gold">Atención</h4>
               <ul className="space-y-2 sm:space-y-3 text-gray-300 w-full flex flex-col items-center md:items-start text-xs sm:text-sm">
                 <li className="flex flex-col w-full max-w-[200px] border-b border-white/10 pb-2">
@@ -575,7 +602,7 @@ export default function App() {
                   <span>Cerrado</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
           </div>
           
