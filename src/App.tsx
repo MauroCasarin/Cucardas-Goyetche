@@ -264,8 +264,12 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full bg-gradient-to-br from-blue-900 via-[#1E293B] to-[#0F172A] text-white py-8 sm:py-12 lg:py-16 relative overflow-hidden flex justify-center">
-          <div className="absolute inset-0 bg-black/20"></div>
+        <section id="inicio" className="w-full text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center bg-gray-900">
+          {/* Background Image & Gradient */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#A91F23]/80 via-gray-900/80 to-black/90 backdrop-blur-[2px]"></div>
+          </div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
             <motion.div 
