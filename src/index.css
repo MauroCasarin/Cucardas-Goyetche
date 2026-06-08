@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@theme {
+  --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-burgundy: #A91F23;
+  --color-burgundy-dark: #821518;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F1D477;
+  --color-softgray: #F3F4F6;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-softgray);
+  color: #1e293b;
+}
