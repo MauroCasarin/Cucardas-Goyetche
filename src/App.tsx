@@ -138,19 +138,20 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="md:w-1/2 flex justify-center"
             >
-               <motion.div 
-                 animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
-                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+               <div 
                  className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full p-2 flex items-center justify-center drop-shadow-2xl"
                >
                   <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain drop-shadow-lg" />
-               </motion.div>
+               </div>
             </motion.div>
           </div>
         </section>
 
+        {/* Divider */}
+        <div className="w-full h-8 sm:h-12 bg-repeat-x opacity-20" style={{ backgroundImage: "url('Fondo.jpg')", backgroundSize: "auto 100%" }}></div>
+
         {/* About Us Section */}
-        <section id="nosotros" className="w-full py-16 sm:py-20 lg:py-24 bg-white flex justify-center">
+        <section id="nosotros" className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 flex justify-center">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
               
@@ -215,8 +216,11 @@ export default function App() {
           </div>
         </section>
 
+        {/* Divider */}
+        <div className="w-full h-8 sm:h-12 bg-repeat-x opacity-20" style={{ backgroundImage: "url('Fondo.jpg')", backgroundSize: "auto 100%" }}></div>
+
         {/* Gallery Section replacing Catalog */}
-        <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 bg-softgray flex justify-center border-t border-gray-200/50">
+        <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-softgray to-gray-200 flex justify-center border-t border-gray-200/50">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10 sm:mb-14 flex flex-col items-center">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">Trabajos</h2>
