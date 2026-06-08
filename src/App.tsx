@@ -60,7 +60,7 @@ export default function App() {
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20 sm:h-24">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
@@ -68,7 +68,7 @@ export default function App() {
               className="flex-shrink-0 flex items-center h-full py-2"
             >
               <img 
-                className="h-full w-auto object-contain max-h-16 sm:max-h-20" 
+                className="h-full w-auto object-contain max-h-12 sm:max-h-14" 
                 src="logo-cucardas-goyetch.svg" 
                 alt="Logo Cucardas Goyetche"
               />
@@ -138,7 +138,7 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full bg-gradient-to-br from-blue-900 via-[#1E293B] to-[#0F172A] text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center">
+        <section id="inicio" className="w-full bg-gradient-to-br from-blue-900 via-[#1E293B] to-[#0F172A] text-white py-8 sm:py-12 lg:py-16 relative overflow-hidden flex justify-center">
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
@@ -146,29 +146,39 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="md:w-1/2 text-center md:text-left mb-12 md:mb-0"
+              className="md:w-1/2 text-center md:text-left mb-10 md:mb-0 pb-4 md:pb-0"
             >
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight">
+              <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-gold-light text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-6 drop-shadow-sm">
+                Desde 1965
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-6 leading-tight text-white drop-shadow-md">
                 Tradición y Calidad en cada detalle
               </h1>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-200 mb-6 max-w-xl mx-auto md:mx-0">
-                Fabricantes de cucardas, rosetas y galardones desde 1965. Premiando los mejores momentos.
+              <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
+                Fabricantes de cucardas, rosetas y galardones. Diseñamos con pasión para premiar los momentos más especiales, manteniendo un estándar de excelencia en todo el país.
               </p>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#galeria" className="bg-gold hover:bg-gold-light text-gray-900 px-6 py-3 rounded-full text-sm sm:text-base font-bold uppercase tracking-widest inline-flex items-center transition-all shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5">
+                  Ver Catálogo <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+                <a href="#contacto" className="text-white hover:text-gold px-4 py-2 text-sm sm:text-base font-bold uppercase tracking-widest inline-flex items-center transition-colors border-b-2 border-transparent hover:border-gold">
+                  Contáctanos
+                </a>
+              </div>
             </motion.div>
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:w-1/2 flex flex-col items-center justify-center p-4"
+              className="md:w-1/2 flex flex-col items-center justify-center p-2 sm:p-4 perspective-1000"
             >
-               <a href="#galeria" className="text-gold hover:text-gold-light text-base sm:text-lg font-bold uppercase tracking-widest mb-6 lg:mb-8 inline-flex items-center transition-colors drop-shadow-md pb-1 border-b-2 border-gold/50 hover:border-gold">
-                  Ver Trabajos <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-               </a>
                <div 
-                 className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full p-2 flex items-center justify-center drop-shadow-2xl"
+                 className="relative w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full p-4 flex items-center justify-center drop-shadow-2xl relative"
                >
-                  <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain drop-shadow-lg" />
+                  <div className="absolute inset-0 bg-gold/10 rounded-full blur-3xl animate-pulse"></div>
+                  <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain relative z-10 drop-shadow-2xl hover:scale-105 transition-transform duration-500 ease-out" />
                </div>
             </motion.div>
           </div>
@@ -360,63 +370,63 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contacto" className="w-full bg-gradient-to-b from-gray-900 via-[#1a1a1a] to-black text-white pt-16 sm:pt-20 pb-8 border-t-4 border-gold relative overflow-hidden">
+      <footer id="contacto" className="w-full bg-gradient-to-b from-gray-900 via-[#1a1a1a] to-black text-white pt-10 sm:pt-14 pb-6 border-t-4 border-gold relative overflow-hidden">
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 mb-12 lg:mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-10">
             
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-16 mb-6 brightness-0 invert opacity-90" />
-              <p className="text-gray-400 mb-6 text-sm sm:text-base max-w-sm leading-relaxed">
+              <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-12 mb-4 brightness-0 invert opacity-90" />
+              <p className="text-gray-400 mb-4 text-xs sm:text-sm max-w-sm leading-relaxed">
                 Fabricando premios y reconocimientos de excelencia desde 1965. 
                 Nuestra pasión por el detalle nos hace líderes en el país.
               </p>
               
-              <div className="flex space-x-5 mt-2">
+              <div className="flex space-x-4 mt-2">
                 <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
-                  <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Instagram className="w-5 h-5" />
                 </a>
                 <a href="https://www.facebook.com/CucardasGoyetche" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10">
-                  <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <Facebook className="w-5 h-5" />
                 </a>
                 <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gold transition-colors p-2 bg-white/5 rounded-full hover:bg-white/10 hidden md:block">
-                  <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
+                  <MessageCircle className="w-5 h-5" />
                 </a>
               </div>
             </div>
 
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h4 className="text-base sm:text-lg font-bold text-white mb-6 sm:mb-8 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-3 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-12 after:h-0.5 after:bg-gold">Contacto</h4>
-              <ul className="space-y-4 sm:space-y-5 text-gray-300 w-full flex flex-col items-center md:items-start text-sm sm:text-base">
+              <h4 className="text-sm sm:text-base font-bold text-white mb-5 sm:mb-6 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-10 after:h-0.5 after:bg-gold">Contacto</h4>
+              <ul className="space-y-3 sm:space-y-4 text-gray-300 w-full flex flex-col items-center md:items-start text-xs sm:text-sm">
                 <li className="flex items-center group">
-                  <div className="bg-white/5 p-2 rounded-full mr-3 sm:mr-4 group-hover:bg-gold/20 transition-colors">
-                    <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 text-gold shrink-0" />
+                  <div className="bg-white/5 p-2 rounded-full mr-3 group-hover:bg-gold/20 transition-colors">
+                    <MessageCircle className="w-4 h-4 text-gold shrink-0" />
                   </div>
                   <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">+54 9 11 6054-0456</a>
                 </li>
                 <li className="flex items-center group">
-                  <div className="bg-white/5 p-2 rounded-full mr-3 sm:mr-4 group-hover:bg-gold/20 transition-colors">
-                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-gold shrink-0" />
+                  <div className="bg-white/5 p-2 rounded-full mr-3 group-hover:bg-gold/20 transition-colors">
+                    <Mail className="w-4 h-4 text-gold shrink-0" />
                   </div>
                   <a href="mailto:info@cucardasgoyetche.com.ar" className="hover:text-gold transition-colors break-all">info@cucardasgoyetche.com.ar</a>
                 </li>
                 <li className="flex items-start group text-left max-w-[250px]">
-                  <div className="bg-white/5 p-2 rounded-full mr-3 sm:mr-4 mt-1 group-hover:bg-gold/20 transition-colors shrink-0">
-                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-gold" />
+                  <div className="bg-white/5 p-2 rounded-full mr-3 mt-1 group-hover:bg-gold/20 transition-colors shrink-0">
+                    <MapPin className="w-4 h-4 text-gold" />
                   </div>
-                  <span>Buenos Aires, Argentina<br/><span className="text-xs sm:text-sm text-gold/70 mt-1 block font-medium">Hacemos envíos a todo el país</span></span>
+                  <span>Buenos Aires, Argentina<br/><span className="text-[10px] sm:text-xs text-gold/70 mt-1 block font-medium">Hacemos envíos a todo el país</span></span>
                 </li>
               </ul>
             </div>
 
             <div className="flex flex-col items-center md:items-start text-center md:text-left lg:border-l lg:border-white/10 lg:pl-10">
-              <h4 className="text-base sm:text-lg font-bold text-white mb-6 sm:mb-8 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-3 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-12 after:h-0.5 after:bg-gold">Atención</h4>
-              <ul className="space-y-3 sm:space-y-4 text-gray-300 w-full flex flex-col items-center md:items-start text-sm sm:text-base">
-                <li className="flex flex-col w-full max-w-[200px] border-b border-white/10 pb-3">
-                  <span className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider mb-1">Lunes a Viernes</span>
+              <h4 className="text-sm sm:text-base font-bold text-white mb-5 sm:mb-6 uppercase tracking-widest relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 md:after:left-0 after:-translate-x-1/2 md:after:translate-x-0 after:w-10 after:h-0.5 after:bg-gold">Atención</h4>
+              <ul className="space-y-2 sm:space-y-3 text-gray-300 w-full flex flex-col items-center md:items-start text-xs sm:text-sm">
+                <li className="flex flex-col w-full max-w-[200px] border-b border-white/10 pb-2">
+                  <span className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider mb-1">Lunes a Viernes</span>
                   <span className="font-semibold text-white">9:00 - 18:00 hs</span>
                 </li>
                 <li className="flex flex-col w-full max-w-[200px] pt-1 opacity-60">
-                  <span className="text-gray-400 text-xs sm:text-sm uppercase tracking-wider mb-1">Fines de semana</span>
+                  <span className="text-gray-400 text-[10px] sm:text-xs uppercase tracking-wider mb-1">Fines de semana</span>
                   <span>Cerrado</span>
                 </li>
               </ul>
