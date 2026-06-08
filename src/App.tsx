@@ -47,17 +47,17 @@ export default function App() {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex space-x-6 lg:space-x-8 items-center">
-              <a href="#inicio" className="text-gray-700 hover:text-burgundy px-3 py-2 text-sm lg:text-base font-semibold transition-colors">INICIO</a>
-              <a href="#nosotros" className="text-gray-700 hover:text-burgundy px-3 py-2 text-sm lg:text-base font-semibold transition-colors">NOSOTROS</a>
-              <a href="#galeria" className="text-gray-700 hover:text-burgundy px-3 py-2 text-sm lg:text-base font-semibold transition-colors">GALERÍA</a>
-              <a href="#contacto" className="text-gray-700 hover:text-burgundy px-3 py-2 text-sm lg:text-base font-semibold transition-colors">CONTACTO</a>
+              <a href="#inicio" className="text-gray-700 hover:text-primary px-3 py-2 text-sm lg:text-base font-semibold transition-colors">INICIO</a>
+              <a href="#nosotros" className="text-gray-700 hover:text-primary px-3 py-2 text-sm lg:text-base font-semibold transition-colors">NOSOTROS</a>
+              <a href="#galeria" className="text-gray-700 hover:text-primary px-3 py-2 text-sm lg:text-base font-semibold transition-colors">GALERÍA</a>
+              <a href="#contacto" className="text-gray-700 hover:text-primary px-3 py-2 text-sm lg:text-base font-semibold transition-colors">CONTACTO</a>
               
               {/* Social Icons Desktop */}
               <div className="flex space-x-4 pl-4 border-l border-gray-200">
-                <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-burgundy transition-colors">
+                <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Instagram className="w-5 h-5 lg:w-6 lg:h-6" />
                 </a>
-                <a href="https://www.facebook.com/CucardasGoyetche" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-burgundy transition-colors">
+                <a href="https://www.facebook.com/CucardasGoyetche" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Facebook className="w-5 h-5 lg:w-6 lg:h-6" />
                 </a>
               </div>
@@ -67,7 +67,7 @@ export default function App() {
             <div className="md:hidden flex items-center">
               <button 
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-700 hover:text-burgundy focus:outline-none p-2"
+                className="text-gray-700 hover:text-primary focus:outline-none p-2"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>}
               </button>
@@ -85,16 +85,16 @@ export default function App() {
               className="md:hidden bg-white border-t border-gray-100 shadow-inner overflow-hidden"
             >
               <div className="px-4 py-4 space-y-2 flex flex-col">
-                <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-burgundy hover:bg-gray-50">INICIO</a>
-                <a href="#nosotros" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-burgundy hover:bg-gray-50">NOSOTROS</a>
-                <a href="#galeria" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-burgundy hover:bg-gray-50">GALERÍA</a>
-                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-burgundy hover:bg-gray-50">CONTACTO</a>
+                <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">INICIO</a>
+                <a href="#nosotros" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">NOSOTROS</a>
+                <a href="#galeria" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">GALERÍA</a>
+                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">CONTACTO</a>
                 
                 <div className="flex space-x-6 pt-4 pb-2 px-3 border-t border-gray-100 justify-center">
-                  <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-burgundy p-2 bg-gray-50 rounded-full">
+                  <a href="https://www.instagram.com/cucardas.goyetche/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary p-2 bg-gray-50 rounded-full">
                     <Instagram className="w-6 h-6" />
                   </a>
-                  <a href="https://www.facebook.com/CucardasGoyetche" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-burgundy p-2 bg-gray-50 rounded-full">
+                  <a href="https://www.facebook.com/CucardasGoyetche" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary p-2 bg-gray-50 rounded-full">
                     <Facebook className="w-6 h-6" />
                   </a>
                   <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-600 p-2 bg-gray-50 rounded-full">
@@ -109,7 +109,7 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full bg-burgundy text-white py-16 sm:py-24 lg:py-32 relative overflow-hidden flex justify-center">
+        <section id="inicio" className="w-full bg-gradient-to-br from-primary to-primary-dark text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center">
           <div className="absolute inset-0 bg-black/20"></div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center">
@@ -119,19 +119,15 @@ export default function App() {
               transition={{ duration: 0.6 }}
               className="md:w-1/2 text-center md:text-left mb-12 md:mb-0"
             >
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight">
                 Tradición y Calidad en cada detalle
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl text-gray-200 mb-8 max-w-xl mx-auto md:mx-0">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-200 mb-6 max-w-xl mx-auto md:mx-0">
                 Fabricantes de cucardas, rosetas y galardones desde 1965. Premiando los mejores momentos.
               </p>
               <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                <a href="#galeria" className="bg-gold hover:bg-gold-light text-burgundy-dark font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 inline-flex items-center justify-center">
+                <a href="#galeria" className="bg-gold hover:bg-gold-light text-primary-dark font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 inline-flex items-center justify-center">
                   Ver Trabajos
-                </a>
-                <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-3 px-8 rounded-full transition-colors inline-flex items-center justify-center backdrop-blur-sm">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  WhatsApp
                 </a>
               </div>
             </motion.div>
@@ -143,11 +139,11 @@ export default function App() {
               className="md:w-1/2 flex justify-center"
             >
                <motion.div 
-                 animate={{ rotate: [0, 5, -5, 0] }}
+                 animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }}
                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                 className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border-4 border-gold p-2 bg-white/10 shadow-2xl backdrop-blur-sm flex items-center justify-center"
+                 className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full p-2 flex items-center justify-center drop-shadow-2xl"
                >
-                  <Award className="w-24 h-24 sm:w-32 sm:h-32 text-gold opacity-90 drop-shadow-lg" />
+                  <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain drop-shadow-lg" />
                </motion.div>
             </motion.div>
           </div>
@@ -164,11 +160,11 @@ export default function App() {
                 viewport={{ once: true, margin: "-100px" }}
                 className="w-full md:w-5/12 flex justify-center"
               >
-                 <div className="aspect-square bg-softgray rounded-2xl p-6 sm:p-10 flex items-center justify-center relative overflow-hidden shadow-sm border border-gray-100 max-w-xs sm:max-w-sm w-full mx-auto group">
-                    <History className="w-40 h-40 text-burgundy opacity-5 absolute -bottom-8 -right-8 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
+                 <div className="aspect-square bg-softgray rounded-xl p-4 sm:p-6 flex items-center justify-center relative overflow-hidden shadow-sm border border-gray-100 max-w-48 sm:max-w-56 w-full mx-auto group">
+                    <History className="w-24 h-24 text-primary opacity-5 absolute -bottom-4 -right-4 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
                     <div className="text-center relative z-10 w-full flex flex-col items-center">
-                      <p className="text-5xl sm:text-6xl font-bold text-burgundy mb-1 sm:mb-2 drop-shadow-sm">1965</p>
-                      <p className="text-sm sm:text-base font-semibold text-gray-500 uppercase tracking-[0.3em]">Desde</p>
+                      <p className="text-3xl sm:text-4xl font-bold text-primary mb-1 drop-shadow-sm">1965</p>
+                      <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em]">Desde</p>
                     </div>
                  </div>
               </motion.div>
@@ -181,7 +177,7 @@ export default function App() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-10 h-1 bg-gold rounded-full inline-block"></span>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-burgundy">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
                     Nuestra Historia
                   </h2>
                 </div>
@@ -223,12 +219,12 @@ export default function App() {
         <section id="galeria" className="w-full py-16 sm:py-20 lg:py-24 bg-softgray flex justify-center border-t border-gray-200/50">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10 sm:mb-14 flex flex-col items-center">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-burgundy mb-4 sm:mb-6">Trabajos Recientes</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">Una muestra de nuestra dedicación. Haz clic en las imágenes para ampliarlas y ver el detalle de cada cucarda y roseta.</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">Trabajos</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">Una muestra de nuestra dedicación.</p>
             </div>
             
             {/* Masonry / Grid Gallery */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 w-full">
+            <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-4 md:gap-6 w-full">
               {galleryImages.map((src, index) => (
                 <motion.div 
                   key={index}
@@ -245,11 +241,11 @@ export default function App() {
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                   />
-                  <div className="absolute inset-0 bg-burgundy/0 group-hover:bg-burgundy/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center">
                     <motion.div 
                       initial={{ scale: 0.5, opacity: 0 }}
                       whileHover={{ scale: 1, opacity: 1 }}
-                      className="bg-white/90 rounded-full p-2 text-burgundy shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                      className="bg-white/90 rounded-full p-2 text-primary shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 opacity-0 group-hover:opacity-100"
                     >
                       <ArrowRight className="w-5 h-5 -rotate-45" />
                     </motion.div>
@@ -386,9 +382,8 @@ export default function App() {
 
           </div>
           
-          <div className="border-t border-white/10 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-500 w-full gap-4">
-            <p className="text-center md:text-left">&copy; {new Date().getFullYear()} Cucardas Goyetche. Todos los derechos reservados.</p>
-            <p className="text-center md:text-right">Diseño web UX/UI Modernizado</p>
+          <div className="border-t border-white/10 pt-8 mt-4 flex flex-col items-center text-xs sm:text-sm text-gray-500 w-full gap-4">
+            <p className="text-center">&copy; {new Date().getFullYear()} Cucardas Goyetche. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>

@@ -3,11 +3,11 @@
 
 @theme {
   --font-sans: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
-  --color-burgundy: #A91F23;
-  --color-burgundy-dark: #821518;
+  --color-primary: #1E293B;
+  --color-primary-dark: #0F172A;
   --color-gold: #D4AF37;
   --color-gold-light: #F1D477;
-  --color-softgray: #F3F4F6;
+  --color-softgray: #F8FAFC;
 }
 
 body {
