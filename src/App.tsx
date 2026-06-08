@@ -267,7 +267,7 @@ export default function App() {
         <section id="inicio" className="w-full text-white py-12 sm:py-16 lg:py-20 relative overflow-hidden flex justify-center bg-gray-900">
           {/* Background Image & Gradient */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
+            <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-[#A91F23]/80 via-gray-900/80 to-black/90 backdrop-blur-[2px]"></div>
           </div>
           
@@ -500,7 +500,13 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contacto" className="w-full bg-gradient-to-b from-gray-900 via-[#1a1a1a] to-black text-white pt-10 sm:pt-14 pb-6 border-t-4 border-gold relative overflow-hidden">
+      <footer id="contacto" className="w-full text-white pt-10 sm:pt-14 pb-6 border-t-4 border-gold relative overflow-hidden">
+        {/* Background Overlay */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('/fondo2.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity grayscale"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-[#1a1a1a]/95 to-black/95 backdrop-blur-[1px]"></div>
+        </div>
+        
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-10">
             
