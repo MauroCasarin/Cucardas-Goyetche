@@ -565,8 +565,7 @@ export default function App() {
             >
               <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-12 mb-4 brightness-0 invert opacity-90" />
               <p className="text-gray-400 mb-4 text-xs sm:text-sm max-w-sm leading-relaxed">
-                Fabricando premios y reconocimientos de excelencia desde 1965. 
-                Nuestra pasión por el detalle nos hace líderes en el país.
+               
               </p>
               
               <div className="flex space-x-4 mt-2">
