@@ -318,7 +318,7 @@ export default function App() {
                 Especialistas en Cucardas y Bandas
               </h1>
               <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
-                Fabricante de cucardas y bandas.  Desarrollamos con pasión y compromiso para premiar las competencias más importantes.
+                Fabricante de Cucardas y Bandas.  Desarrollamos con pasión y compromiso para premiar las competencias más importantes del país.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
@@ -330,7 +330,7 @@ export default function App() {
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1.5 }}
               transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
               className="md:w-1/2 flex flex-col items-center justify-center p-2 sm:p-4 perspective-1000"
             >
