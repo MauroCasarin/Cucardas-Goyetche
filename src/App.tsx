@@ -8,7 +8,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 // Images uploaded to public/
-const galleryImages = Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`);
+const galleryImages = [
+  ...Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`),
+  'img (22).jpg'
+];
 
 const ParallaxBackground = ({ src, className = '', style = {} }: { src: string, className?: string, style?: React.CSSProperties }) => {
   const ref = useRef(null);
@@ -312,10 +315,10 @@ export default function App() {
                 </div>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight text-white drop-shadow-md">
-                Tradición y Calidad en cada detalle
+                Especialistas en Cucardas y Bandas
               </h1>
               <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
-                Fabricantes de cucardas, rosetas y galardones. Diseñamos con pasión para premiar los momentos más especiales, manteniendo un estándar de excelencia en todo el país.
+                Fabricante de cucardas y bandas.  Desarrollamos con pasión y compromiso para premiar las competencias más importantes.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
@@ -383,16 +386,13 @@ export default function App() {
                 
                 <div className="text-gray-600 space-y-3 md:space-y-4 text-sm sm:text-base leading-relaxed">
                   <p>
-                    Con más de medio siglo de trayectoria, en <strong className="text-gray-800">Cucardas Goyetche</strong> nos enorgullece ser un referente a nivel nacional en la confección de cucardas, reconocimientos y galardones.
-                  </p>
-                  <p>
-                    Comenzamos como un modesto emprendimiento familiar y, gracias a nuestro compromiso inquebrantable con la calidad y la atención al detalle, hemos crecido acompañando exposiciones rurales, torneos deportivos, eventos escolares y corporativos a lo largo de las décadas.
+                Confeccionando Cucardas y Bandas hace más de 50 años para los eventos más importantes del país, nos enorgullece ser un referente en la fabricación, una garantía de calidad, cumplimiento y atención.
                   </p>
                 </div>
                 
                 <ul className="space-y-2 sm:space-y-3 mt-6 sm:mt-8">
                   {[
-                    { text: "Materiales de primera calidad", icon: Gem },
+                    { text: "Las mejores cintas del país", icon: Gem },
                     { text: "Atención personalizada", icon: Users },
                     { text: "Envíos a todo el país", icon: Truck }
                   ].map((item, idx) => (
