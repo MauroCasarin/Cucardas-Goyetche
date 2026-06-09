@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ArrowRight, Award, History, Mail, MapPin, Phone, Instagram, Facebook, MessageCircle, X, ChevronRight, ChevronLeft } from 'lucide-react';
+import { ArrowRight, Award, History, Mail, MapPin, Phone, Instagram, Facebook, MessageCircle, X, ChevronRight, ChevronLeft, Gem, Users, Truck } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -13,7 +13,7 @@ const galleryImages = Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`)
 const RibbonDivider = () => (
   <div className="w-full flex-col flex relative z-20 shadow-lg">
     <div className="w-full h-1 bg-gradient-to-r from-gold-light via-gold to-gold-light opacity-90 shadow-sm relative z-10"></div>
-    <div className="w-full h-8 sm:h-10 overflow-hidden relative border-y border-gold/30" style={{ background: 'linear-gradient(90deg, #1E293B, #0F172A)' }}>
+    <div className="w-full h-6 sm:h-8 overflow-hidden relative border-y border-gold/30" style={{ background: 'linear-gradient(90deg, #1E293B, #0F172A)' }}>
       {/* Cintas moviéndose de izquierda a derecha simulando pliegues de cucarda */}
       <motion.div
         animate={{ x: [-40, 0] }}
@@ -164,6 +164,7 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(galleryImages.length).fill(false));
 
   // Keyboard navigation for lightbox
   useEffect(() => {
@@ -183,7 +184,7 @@ export default function App() {
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
+          <div className="flex justify-between items-center h-14 sm:h-16">
             {/* Logo */}
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
@@ -258,7 +259,7 @@ export default function App() {
 
       <main className="flex-grow flex flex-col items-center w-full">
         {/* Hero Section */}
-        <section id="inicio" className="w-full text-white py-8 sm:py-12 lg:py-14 relative overflow-hidden flex justify-center bg-gray-900">
+        <section id="inicio" className="w-full text-white py-6 sm:py-8 lg:py-10 relative overflow-hidden flex justify-center bg-gray-900">
           {/* Background Image & Gradient */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
@@ -281,19 +282,16 @@ export default function App() {
                   Envíos a todo el país
                 </div>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4 sm:mb-6 leading-tight text-white drop-shadow-md">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4 leading-tight text-white drop-shadow-md">
                 Tradición y Calidad en cada detalle
               </h1>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
+              <p className="text-sm sm:text-base text-gray-300 mb-6 max-w-xl mx-auto md:mx-0 leading-relaxed font-light">
                 Fabricantes de cucardas, rosetas y galardones. Diseñamos con pasión para premiar los momentos más especiales, manteniendo un estándar de excelencia en todo el país.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#galeria" className="bg-gold hover:bg-gold-light text-gray-900 px-6 py-3 rounded-full text-sm sm:text-base font-bold uppercase tracking-widest inline-flex items-center transition-all shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5">
+                <a href="#galeria" className="bg-gold hover:bg-gold-light text-gray-900 px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest inline-flex items-center transition-all shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5">
                   Ver Catálogo <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-                <a href="#contacto" onClick={(e) => { e.preventDefault(); setIsContactModalOpen(true); }} className="text-white hover:text-gold px-4 py-2 text-sm sm:text-base font-bold uppercase tracking-widest inline-flex items-center transition-colors border-b-2 border-transparent hover:border-gold">
-                  Contáctanos
                 </a>
               </div>
             </motion.div>
@@ -305,7 +303,7 @@ export default function App() {
               className="md:w-1/2 flex flex-col items-center justify-center p-2 sm:p-4 perspective-1000"
             >
                <div 
-                 className="relative w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 rounded-full p-4 flex items-center justify-center drop-shadow-2xl relative"
+                 className="relative w-32 h-32 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full p-2 sm:p-4 flex items-center justify-center drop-shadow-2xl"
                >
                   <div className="absolute inset-0 bg-gold/10 rounded-full blur-3xl animate-pulse"></div>
                   <img src="Iso logo-cucardas-goyetch.svg" alt="Isologo Cucardas Goyetche" className="w-full h-full object-contain relative z-10 drop-shadow-2xl hover:scale-105 transition-transform duration-500 ease-out" />
@@ -318,9 +316,9 @@ export default function App() {
         <RibbonDivider />
 
         {/* About Us Section */}
-        <section id="nosotros" className="w-full py-10 sm:py-14 lg:py-16 relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        <section id="nosotros" className="w-full py-4 sm:py-6 lg:py-8 relative flex justify-center overflow-hidden bg-gradient-to-b from-white to-gray-50">
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+            <div className="flex flex-col md:flex-row items-center gap-6 lg:gap-10">
               
               <motion.div 
                 initial={{ opacity: 0, x: -40 }}
@@ -329,14 +327,15 @@ export default function App() {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="w-full md:w-5/12 flex justify-center"
               >
-                 <div className="aspect-square bg-softgray rounded-xl p-4 sm:p-6 flex items-center justify-center relative overflow-hidden shadow-sm border border-gray-100 max-w-48 sm:max-w-56 w-full mx-auto group">
-                    <History className="w-24 h-24 text-primary opacity-5 absolute -bottom-4 -right-4 pointer-events-none group-hover:scale-110 transition-transform duration-700" />
-                    <div className="text-center relative z-10 w-full flex flex-col items-center">
-                    <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em]">Desde</p>
-                    <p className="text-3xl sm:text-4xl font-bold text-primary mb-1 drop-shadow-sm">1965</p>
-                      
-                    </div>
-                 </div>
+                  <div className="w-full max-w-xs sm:max-w-sm h-32 sm:h-40 bg-gray-200 rounded-xl p-4 sm:p-6 flex items-center justify-center relative overflow-hidden shadow-sm border border-gray-100 mx-auto group">
+                     {/* Skeleton Pulse Animation */}
+                     <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 animate-[pulse_2s_ease-in-out_infinite] opacity-60"></div>
+                     <History className="w-24 h-24 text-primary opacity-5 absolute -bottom-4 -right-4 pointer-events-none group-hover:scale-110 transition-transform duration-700 z-0" />
+                     <div className="text-center relative z-10 w-full flex flex-col items-center justify-center border-2 border-dashed border-gray-400/30 rounded-lg h-full">
+                       <p className="text-xs sm:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em] mb-1">Desde</p>
+                       <p className="text-3xl sm:text-4xl font-bold text-primary drop-shadow-sm">1965</p>
+                     </div>
+                  </div>
               </motion.div>
               
               <motion.div 
@@ -348,12 +347,12 @@ export default function App() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <span className="w-10 h-1 bg-gold rounded-full inline-block"></span>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-primary">
                     Nuestra Historia
                   </h2>
                 </div>
                 
-                <div className="text-gray-600 space-y-4 md:space-y-6 text-sm sm:text-base lg:text-lg leading-relaxed">
+                <div className="text-gray-600 space-y-3 md:space-y-4 text-sm sm:text-base leading-relaxed">
                   <p>
                     Con más de medio siglo de trayectoria, en <strong className="text-gray-800">Cucardas Goyetche</strong> nos enorgullece ser un referente a nivel nacional en la confección de cucardas, reconocimientos y galardones.
                   </p>
@@ -362,11 +361,11 @@ export default function App() {
                   </p>
                 </div>
                 
-                <ul className="space-y-3 sm:space-y-4 mt-8 sm:mt-10">
+                <ul className="space-y-2 sm:space-y-3 mt-6 sm:mt-8">
                   {[
-                    "Materiales de primera calidad",
-                    "Atención personalizada",
-                    "Envíos a todo el país"
+                    { text: "Materiales de primera calidad", icon: Gem },
+                    { text: "Atención personalizada", icon: Users },
+                    { text: "Envíos a todo el país", icon: Truck }
                   ].map((item, idx) => (
                     <motion.li 
                       key={idx}
@@ -376,8 +375,8 @@ export default function App() {
                       transition={{ duration: 0.5, delay: 0.6 + (idx * 0.15) }}
                       className="flex items-center text-gray-700 bg-gray-50 rounded-lg p-3 sm:p-4 text-sm sm:text-base"
                     >
-                      <Award className="w-5 h-5 sm:w-6 sm:h-6 text-gold mr-3 sm:mr-4 shrink-0" />
-                      <span className="font-medium">{item}</span>
+                      <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold mr-3 sm:mr-4 shrink-0" />
+                      <span className="font-medium">{item.text}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -390,7 +389,7 @@ export default function App() {
         <RibbonDivider />
 
         {/* Gallery Section replacing Catalog */}
-        <section id="galeria" className="w-full py-10 sm:py-14 lg:py-16 relative flex justify-center overflow-hidden bg-softgray">
+        <section id="galeria" className="w-full py-6 sm:py-8 lg:py-10 relative flex justify-center overflow-hidden bg-softgray">
           {/* Background image in Gallery */}
           <div 
             className="absolute inset-0 opacity-20 sm:opacity-[0.25] mix-blend-multiply bg-fixed"
@@ -408,10 +407,10 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-center mb-10 sm:mb-14 flex flex-col items-center"
+              className="text-center mb-6 sm:mb-8 flex flex-col items-center"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">Trabajos</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg">Una muestra de nuestra dedicación.</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 sm:mb-3">Trabajos</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">Una muestra de nuestra dedicación.</p>
             </motion.div>
             
             {/* Masonry / Grid Gallery */}
@@ -426,11 +425,21 @@ export default function App() {
                   className="aspect-square relative overflow-hidden rounded-xl bg-gray-200 cursor-pointer shadow-sm hover:shadow-md group"
                   onClick={() => setSelectedImageIndex(index)}
                 >
+                  {!imagesLoaded[index] && (
+                    <div className="absolute inset-0 bg-gray-300 animate-pulse" />
+                  )}
                   <img 
                     src={src} 
                     alt={`Cucarda detalle ${index + 1}`} 
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    onLoad={() => {
+                      setImagesLoaded(prev => {
+                        const next = [...prev];
+                        next[index] = true;
+                        return next;
+                      });
+                    }}
+                    className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${imagesLoaded[index] ? 'opacity-100' : 'opacity-0'}`} 
                   />
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center">
                     <motion.div 
@@ -509,7 +518,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer id="contacto" className="w-full text-white pt-8 sm:pt-10 pb-6 border-t-4 border-gold relative overflow-hidden">
+      <footer id="contacto" className="w-full text-white pt-6 sm:pt-8 pb-4 border-t-4 border-gold relative overflow-hidden">
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[url('/fondo2.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity grayscale"></div>
@@ -517,7 +526,7 @@ export default function App() {
         </div>
         
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-8 lg:mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-6 lg:mb-8">
             
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
