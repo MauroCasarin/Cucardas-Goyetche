@@ -4,11 +4,37 @@
  */
 
 import { ArrowRight, Award, History, Mail, MapPin, Phone, Instagram, Facebook, MessageCircle, X, ChevronRight, ChevronLeft, Gem, Users, Truck } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 // Images uploaded to public/
 const galleryImages = Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`);
+
+const ParallaxBackground = ({ src, className = '', style = {} }: { src: string, className?: string, style?: React.CSSProperties }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+
+  return (
+    <div ref={ref} className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <motion.div
+        className={`absolute w-full h-[130%] -top-[15%] left-0 ${className}`}
+        style={{
+          backgroundImage: `url('${src}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          y,
+          ...style
+        }}
+        initial={false}
+      />
+    </div>
+  );
+};
 
 const RibbonDivider = () => (
   <div className="w-full flex-col flex relative z-20 shadow-lg">
@@ -261,8 +287,11 @@ export default function App() {
         {/* Hero Section */}
         <section id="inicio" className="w-full text-white py-6 sm:py-8 lg:py-10 relative overflow-hidden flex justify-center bg-gray-900">
           {/* Background Image & Gradient */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-[url('/fondo3.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-40 mix-blend-luminosity grayscale"></div>
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <ParallaxBackground 
+              src="/fondo3.jpg" 
+              className="opacity-40 mix-blend-luminosity grayscale origin-center" 
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#A91F23]/80 via-gray-900/80 to-black/90 backdrop-blur-[2px]"></div>
           </div>
           
@@ -391,14 +420,10 @@ export default function App() {
         {/* Gallery Section replacing Catalog */}
         <section id="galeria" className="w-full py-6 sm:py-8 lg:py-10 relative flex justify-center overflow-hidden bg-softgray">
           {/* Background image in Gallery */}
-          <div 
-            className="absolute inset-0 opacity-20 sm:opacity-[0.25] mix-blend-multiply bg-fixed"
-            style={{ 
-              backgroundImage: "url('Fondo.jpg')", 
-              backgroundSize: "cover",
-              backgroundPosition: "center"
-            }}
-          ></div>
+          <ParallaxBackground 
+            src="/Fondo.jpg" 
+            className="opacity-20 sm:opacity-[0.25] mix-blend-multiply origin-center" 
+          />
           <div className="absolute inset-0 bg-gradient-to-br from-softgray/95 via-gray-100/70 to-gray-200/90 pointer-events-none"></div>
           
           <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -520,8 +545,11 @@ export default function App() {
       {/* Footer */}
       <footer id="contacto" className="w-full text-white pt-6 sm:pt-8 pb-4 border-t-4 border-gold relative overflow-hidden">
         {/* Background Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-[url('/fondo2.jpg')] bg-fixed bg-cover bg-center bg-no-repeat opacity-30 mix-blend-luminosity grayscale"></div>
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <ParallaxBackground 
+            src="/fondo2.jpg" 
+            className="opacity-30 mix-blend-luminosity grayscale origin-center" 
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-[#1a1a1a]/95 to-black/95 backdrop-blur-[1px]"></div>
         </div>
         
