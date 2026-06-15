@@ -8,10 +8,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 // Images uploaded to public/
-const galleryImages = [
-  ...Array.from({ length: 17 }, (_, i) => `img (${i + 1}).jpg`),
-  'img (22).jpg'
-];
+const galleryImages = Array.from({ length: 22 }, (_, i) => `img (${i + 1}).jpg`);
 
 const ParallaxBackground = ({ src, className = '', style = {} }: { src: string, className?: string, style?: React.CSSProperties }) => {
   const ref = useRef(null);
@@ -68,131 +65,9 @@ const RibbonDivider = () => (
   </div>
 );
 
-const ContactModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  const [formData, setFormData] = useState({ nombre: '', email: '', telefono: '', mensaje: '' });
-
-  if (!isOpen) return null;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Consulta Web de ${formData.nombre}`);
-    const body = encodeURIComponent(`Nombre: ${formData.nombre}\nE-mail: ${formData.email}\nTeléfono: ${formData.telefono}\n\nMensaje:\n${formData.mensaje}`);
-    window.location.href = `mailto:info@cucardasgoyetche.com.ar?subject=${subject}&body=${body}`;
-    onClose();
-    setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm"
-          onClick={onClose}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden relative flex flex-col max-h-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="bg-gradient-to-r from-gray-900 to-black p-6 sm:p-8 relative shrink-0">
-              <button 
-                onClick={onClose}
-                className="absolute top-4 right-4 text-white/70 hover:text-white p-2 hover:bg-white/10 rounded-full transition-colors"
-                aria-label="Cerrar modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 tracking-tight">Envíanos tu consulta</h3>
-              <p className="text-gold-light text-sm sm:text-base opacity-90">Completa tus datos y nos pondremos en contacto.</p>
-            </div>
-            
-            <div className="p-6 sm:p-8 overflow-y-auto">
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-semibold text-gray-700 mb-1">Nombre y Apellido</label>
-                  <input 
-                    type="text" 
-                    id="nombre" 
-                    name="nombre" 
-                    required 
-                    value={formData.nombre}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all text-gray-800"
-                    placeholder="Tu nombre completo"
-                  />
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">E-mail</label>
-                    <input 
-                      type="email" 
-                      id="email" 
-                      name="email" 
-                      required 
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all text-gray-800"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="telefono" className="block text-sm font-semibold text-gray-700 mb-1">Teléfono</label>
-                    <input 
-                      type="tel" 
-                      id="telefono" 
-                      name="telefono" 
-                      required 
-                      value={formData.telefono}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all text-gray-800"
-                      placeholder="Tu teléfono"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="mensaje" className="block text-sm font-semibold text-gray-700 mb-1">Mensaje</label>
-                  <textarea 
-                    id="mensaje" 
-                    name="mensaje" 
-                    required 
-                    rows={4}
-                    value={formData.mensaje}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all resize-none text-gray-800"
-                    placeholder="Escribe tu consulta aquí..."
-                  ></textarea>
-                </div>
-                
-                <div className="pt-2">
-                  <button 
-                    type="submit" 
-                    className="w-full bg-gold hover:bg-gold-light text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center uppercase tracking-widest text-sm"
-                  >
-                    Enviar Mensaje <ArrowRight className="w-4 h-4 ml-2" />
-                  </button>
-                </div>
-              </form>
-            </div>
-          </motion.div>
-        </div>
-      )}
-    </AnimatePresence>
-  );
-};
-
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState<boolean[]>(new Array(galleryImages.length).fill(false));
 
   // Keyboard navigation for lightbox
@@ -209,7 +84,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-gray-800 bg-softgray">
-      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
       {/* Header */}
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,6 +98,7 @@ export default function App() {
                 className="h-full w-auto object-contain max-h-12 sm:max-h-14" 
                 src="logo-cucardas-goyetch.svg" 
                 alt="Logo Cucardas Goyetche"
+                fetchPriority="high"
               />
             </motion.div>
 
@@ -563,7 +438,7 @@ export default function App() {
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
               className="flex flex-col items-center md:items-start text-center md:text-left"
             >
-              <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-12 mb-4 brightness-0 invert opacity-90" />
+              <img src="logo-cucardas-goyetch.svg" alt="Cucardas Goyetche Logo en recuadro" className="h-12 mb-4 brightness-0 invert opacity-90" loading="lazy" />
               <p className="text-gray-400 mb-4 text-xs sm:text-sm max-w-sm leading-relaxed">
                
               </p>
@@ -596,11 +471,11 @@ export default function App() {
                   </div>
                   <a href="https://wa.me/5491160540456" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">WhatsApp: +54 9 11 6054-0456</a>
                 </li>
-                <li className="flex items-center group cursor-pointer" onClick={() => setIsContactModalOpen(true)}>
+                <li className="flex items-center group">
                   <div className="bg-white/5 p-2 rounded-full mr-3 group-hover:bg-gold/20 transition-colors">
                     <Mail className="w-4 h-4 text-gold shrink-0" />
                   </div>
-                  <span className="hover:text-gold transition-colors break-all">info@cucardasgoyetche.com.ar</span>
+                  <span className="break-all">info@cucardasgoyetche.com.ar</span>
                 </li>
                 <li className="flex items-start group text-left max-w-[250px]">
                   <div className="bg-white/5 p-2 rounded-full mr-3 mt-1 group-hover:bg-gold/20 transition-colors shrink-0">
